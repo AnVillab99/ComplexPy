@@ -94,6 +94,8 @@ class Complex:
             return False
     def print(self):
         return ("[ "+str(self.real)+" , "+str(self.imag)+" ]")
+    def printS(self):
+        return ("[ "+str(self.real)+" , "+str(self.imag)+" ]")
         
 
         
