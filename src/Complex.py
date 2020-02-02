@@ -93,7 +93,7 @@ class Complex:
     # @return  boolean son iguales o no
     @staticmethod
     def equals(self,b):
-        if(0.0001<abs(b.real-self.real)>0.000001 and 0.0001<abs(b.imag-self.imag)>0.000001):
+        if(-0.00001<abs(b.real-self.real)<0.00001 and -0.00001<abs(b.imag-self.imag)<0.000001):
             return True
         
         else:

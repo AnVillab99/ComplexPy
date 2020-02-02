@@ -41,6 +41,8 @@ class TestComplexVector(unittest.TestCase):
         v2  = m.Matrix([[com.Complex(2, 2)], [com.Complex(2,3)]])
         c = com.Complex(-13,17)
         s = v1.multiply(v2)
+        print(c.printS())
+        s.print()
         self.assertTrue(c.equals(c,s))
 
 

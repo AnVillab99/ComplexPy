@@ -83,6 +83,57 @@ class Matrix:
                 p[j][i] =self.m[i][j]
         return Matrix(p)
 
+
+    def conjugada(self):
+        p = [[com.Complex(0,0) for i in range(self.J)] for j in range(self.I)]
+        for i in range(self.I):
+            for j in range(self.J):
+                p[i][j] =self.m[i][j].conjugado()
+        return Matrix(p)
+
+
+    def adjunta(self):
+        return self.transpuesta().conjugada()
+    
+    def trace(self):
+        if(self.I!=self.J):
+            raise ValueError("Matriz no cuadrada")
+        r=com.Complex(0,0)
+        for i in range (self.I):
+            r=r.suma(self.m[i][i])
+        return r
+
+    def norma(self):
+        c =self.adjunta()
+        d = c.multiply(self)
+    
+        return round(math.sqrt(d.trace().real),4)
+    
+    def distancia(self,b):
+        return (self.resta(b).norma())
+
+    def unitaria(self):
+        c = self.multiply(self.adjunta())
+        for i in range (c.I):
+            for j in range(c.J):
+                if (i==j and (c.m[i][j].real!=1 or c.m[i][j].imag!=0 )):
+                    return False
+                elif(i!=j and (c.m[i][j].real!=0 or c.m[i][j].imag!=0)):
+                    return False
+        return True
+    
+    def hermetian(self):
+        if(self.I!=self.J):
+            return False
+        d = self.adjunta()
+        for i in range(self.I):
+            for j in range(self.J):
+                if ( self.m[i][j].real!= d.m[i][j].real or self.m[i][j].imag!= d.m[i][j].imag):
+                    return False
+        return True
+
+        
+
         
     
 
