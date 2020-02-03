@@ -94,21 +94,16 @@ class TestComplexMatrix(unittest.TestCase):
         
         self.assertTrue(not m1.hermetian())
 
-    # def test_matrix_tensorProduct(self):
-    #     a = [[com.Complex(3, 0), com.Complex(2, 0)], [
-    #         com.Complex(-1, 0), com.Complex(0, 30)]]
-    #     b = [[com.Complex(6, 0), com.Complex(5, 0)], [
-    #         com.Complex(3, 0), com.Complex(2, 0)]]
-    #     s = [[com.Complex(18, 0), com.Complex(15, 0), com.Complex(12, 0), com.Complex(10, 0)], [
-    #         com.Complex(9, 0), com.Complex(6, 0), com.Complex(6, 0), com.Complex(4, 0)], [
-    #         com.Complex(-6, 0), com.Complex(-5, 0), com.Complex(0, 0), com.Complex(0, 0)], [
-    #         com.Complex(-3, 0), com.Complex(-2, 0), com.Complex(0, 0), com.Complex(0, 0)]]
-    #     p = Matrix.tensorProduct(a, b)
-    #     for i in range(len(s)):
-    #         for j in range(len(s[0])):
-    #             self.assertEqual(s[i][j].real, p[i][j].real)
-    #             self.assertEqual(s[i][j].imag, p[i][j].imag)
-
+    def test_matrix_tensorProduct(self):
+        m1 = m.Matrix([[com.Complex(1, 0), com.Complex(2, 0)],[com.Complex(3, 0), com.Complex(4, 0)]])
+        m2 = m.Matrix([[com.Complex(5, 0), com.Complex(6, 0)], [com.Complex(7, 0), com.Complex(8, 0)]])
+        
+        mr = m.Matrix([[com.Complex(5, 0), com.Complex(6, 0), com.Complex(10, 0), com.Complex(12, 0)],
+        [com.Complex(7, 0), com.Complex(8, 0), com.Complex(14, 0), com.Complex(16, 0)],
+        [com.Complex(15, 0), com.Complex(18, 0), com.Complex(20, 0), com.Complex(24, 0)],
+        [com.Complex(21, 0), com.Complex(24, 0), com.Complex(28, 0), com.Complex(32, 0)]])
+        r=m1.productoTensor(m2)
+        self.assertTrue(mr.equals(r));
 
 if __name__ == '__main__':
     unittest.main()
