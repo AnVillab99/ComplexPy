@@ -79,11 +79,11 @@ class TestComplexMatrix(unittest.TestCase):
         p= m1.distancia(m2)
         self.assertEqual(p,s)
 
-    def test_matrix_unitary(self):
+    def testMatrizUnitaria(self):
         m1 = m.Matrix( [[com.Complex(0.5, 0.5), com.Complex(0.5, -0.5)], [com.Complex(0.5, -0.5), com.Complex(0.5, 0.5)]])
         self.assertTrue(m1.unitaria())
 
-    def test_matrix_hermitian(self):
+    def testMatrizHermitiana(self):
         m1 = m.Matrix([[com.Complex(5, 0), com.Complex(3, 6), com.Complex(8, -15)], [
             com.Complex(3, -6), com.Complex(13, 0), com.Complex(2, -1)], [
             com.Complex(8, 15), com.Complex(2, 1), com.Complex(-2, 0)]])
@@ -94,7 +94,7 @@ class TestComplexMatrix(unittest.TestCase):
         
         self.assertTrue(not m1.hermetian())
 
-    def test_matrix_tensorProduct(self):
+    def testProductoTensor(self):
         m1 = m.Matrix([[com.Complex(1, 0), com.Complex(2, 0)],[com.Complex(3, 0), com.Complex(4, 0)]])
         m2 = m.Matrix([[com.Complex(5, 0), com.Complex(6, 0)], [com.Complex(7, 0), com.Complex(8, 0)]])
         
@@ -102,8 +102,12 @@ class TestComplexMatrix(unittest.TestCase):
         [com.Complex(7, 0), com.Complex(8, 0), com.Complex(14, 0), com.Complex(16, 0)],
         [com.Complex(15, 0), com.Complex(18, 0), com.Complex(20, 0), com.Complex(24, 0)],
         [com.Complex(21, 0), com.Complex(24, 0), com.Complex(28, 0), com.Complex(32, 0)]])
+
         r=m1.productoTensor(m2)
-        self.assertTrue(mr.equals(r));
+        r.print()
+        self.assertTrue(mr.equals(r))
+    
+        
 
 if __name__ == '__main__':
     unittest.main()

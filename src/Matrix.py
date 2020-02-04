@@ -1,6 +1,7 @@
 import sys
 import math
 import Complex as com
+#import numpy as np
 
 class Matrix:
     def __init__(self,m):
@@ -147,6 +148,13 @@ class Matrix:
                     return False
         return True
 
+    def multiplyS(self,d):
+        k = [[com.Complex(0,0) for i in range(self.J)] for j in range(self.I)]
+        for i in range(self.I):
+            for j in range(self.J):
+                k[i][j]=self.m[i][j].sMultiply(d)
+        return Matrix(k)
+
 
     def escalarMultiply(self,c):
         k = [[com.Complex(0,0) for i in range(self.J)] for j in range(self.I)]
@@ -173,10 +181,6 @@ class Matrix:
             g+=1
         return Matrix(tpc)
 
-
-
-
-
     #filler es matriz, og no
     def llenar(self,og,filler,vecesI,vecesJ):
         iF = filler.I;
@@ -192,6 +196,25 @@ class Matrix:
             itJ=0
             itI=itI+1
         return og
+
+
+
+
+        # def vectorPropio(self):
+        #     r  = [[0 for i in range(self.J)] for j in range(self.I)]
+        #     i = [[0 for i in range(self.J)] for j in range(self.I)]
+        #     for i in range(self.I):
+        #         for j in range(self.J):
+        #             r[i][j]=self.m[i][j].real
+        #             i[i][j] = self.m[i][j].imag
+        #     R =1j*i
+        #     R+=r
+        #     r2 =np.vectorize(complex)(r, i)
+        #     k = np.linalg.eig(r2)
+        #     k2 = np.linalg.eig(r,R)
+        #     print(k2)
+            
+
 
 
 
