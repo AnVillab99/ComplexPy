@@ -3,6 +3,7 @@ import Complex as com
 import Matrix as m
 
 
+
 class TestComplexMatrix(unittest.TestCase):
 
     def testSumaMatriz(self):
@@ -104,8 +105,17 @@ class TestComplexMatrix(unittest.TestCase):
         [com.Complex(21, 0), com.Complex(24, 0), com.Complex(28, 0), com.Complex(32, 0)]])
 
         r=m1.productoTensor(m2)
-        r.print()
         self.assertTrue(mr.equals(r))
+    
+    def testVectoresPropios(self):
+        m1 = m.Matrix([[com.Complex(1, 0), com.Complex(-3, 0),com.Complex(3, 0)],
+        [com.Complex(3, 0), com.Complex(-5, 0), com.Complex(3, 0),],
+        [com.Complex(6, 0), com.Complex(-6, 0), com.Complex(4, 0)]])
+        m2 = m.Matrix([[com.Complex(1, 1), com.Complex(-3, -1),com.Complex(3, 1)],
+        [com.Complex(3, 1), com.Complex(-5, -1), com.Complex(3, 1),],
+        [com.Complex(6, 1), com.Complex(-6, -1), com.Complex(4, 0)]])
+        m2.vectorPropio()
+
     
         
 

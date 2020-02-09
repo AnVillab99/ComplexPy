@@ -1,8 +1,8 @@
 import sys
 import math
 import Complex as com
-#import numpy as np
-
+import numpy as np
+import sympy as sp
 class Matrix:
     def __init__(self,m):
         self.m= m # la matriz
@@ -200,19 +200,42 @@ class Matrix:
 
 
 
-        # def vectorPropio(self):
-        #     r  = [[0 for i in range(self.J)] for j in range(self.I)]
-        #     i = [[0 for i in range(self.J)] for j in range(self.I)]
-        #     for i in range(self.I):
-        #         for j in range(self.J):
-        #             r[i][j]=self.m[i][j].real
-        #             i[i][j] = self.m[i][j].imag
-        #     R =1j*i
-        #     R+=r
-        #     r2 =np.vectorize(complex)(r, i)
-        #     k = np.linalg.eig(r2)
-        #     k2 = np.linalg.eig(r,R)
-        #     print(k2)
+    def vectorPropio(self):
+        sustituto  = [[0 for i in range(self.J)] for j in range(self.I)]
+        sus2 =[0+0j for t in range(self.J*self.I)]
+        o =0
+        
+        for a in range(self.I):
+            for b in range(self.J):
+                sustituto[a][b] = self.m[a][b].real + self.m[a][b].imag*1j
+
+        sus = sp.Matrix(sustituto)
+        eigen=sus.eigenvects()
+        print("")  
+        result = [Matrix([0]) for i in range(len(eigen))]      
+        for i in range(len(eigen)):
+            eigenV = eigen[i][2]
+            #sigue cada uno de los eigenvector
+            eV = [com.Complex(0,0) for j in range (len(eigenV[0]))]
+            print(eV)
+        
+
+            # for v in range(len(eigenV)):
+            #     VRow = eigenV[v]
+            #     print(VRow)
+            #     for j in range (len(VRow)):
+            #         result[v][j]=com.Complex(sp.re(VRow[j]),sp.im(VRow[j]))
+        #Matrix(result).print()
+
+            
+
+    
+        # npArray = np.array(sustituto)
+        # w,v = np.linalg.eig(npArray)
+        # print("##########################################")
+        # print(w)
+        # 
+        # print(v)
             
 
 
