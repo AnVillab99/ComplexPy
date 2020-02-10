@@ -1,7 +1,7 @@
 "# CNYT-LabLibreria-Complejos" 
 ## Libreia complejos
-Esta libreria consiste de una implementacion propia de los numeros complejos, y matrices de nuemros complejos con sus respectivas operaciones.
-Esta libreria interpreta Matriz de nx1 como vectores de n.
+Esta libreria consiste de una implementación propia de los numeros complejos, y matrices de nuemros complejos con sus respectivas operaciones.
+Para usar vectores creelos como una matriz nx1 o 1xn y aplique transpuesta.
 
 
 ## Complejos
@@ -35,15 +35,24 @@ En esta libreria las matrices cuentan con las siguientes operaciones:
  - verificacion si es hermitiana
  - multiplicacion escalar
  - producto tensor
+ - Vectores Propios
+ - Valores Propios
+ - Comparacion de valores propios
 ## Uso de libreria
-Para correr esta libreria se necesita tener instalado python 3.8 
+Para correr esta libreria se necesita tener instalado python 3.8 y SymPy
+
 Para instalar python se va a la pagina princiapl de python 
 > https://www.python.org/downloads/
 Y se descarga la version especificada
 
 luego se clona la libreria de github:
 >https://github.com/AnVillab99/ComplexPy
-para ejecutar se emplea el IDLE de python, o u ide de eleccion y se ejecuta 
+
+Dentro del repositorio clonado se debe ejecutar el comando:
+> pip install sympy
+
+Para ejecutar se emplea el IDLE de python, o IDE de eleccion y se ejecuta: 
+
 >py parteDeLalibreiaAEjecutar.py
 
 
@@ -60,14 +69,15 @@ o
 ## Built With
 
 * [Python](https://maven.apache.org/) - Language
+* [SymPy](https://www.sympy.org/en/index.html) - Library
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/AnVillab99/AREP-Lab1/tags). 
+For the versions available, see the [tags on this repository](https://github.com/AnVillab99/ComplexPy). 
 
 ## Authors
 
-* **Andres Villamil**  [AnVillab99](https://www.python.org)
+* **Andres Villamil**  [AnVillab99](https://github.com/AnVillab99)
 
 
 ## License
