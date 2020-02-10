@@ -1,4 +1,4 @@
-"# CNYT-LabLibreria-Complejos" 
+# CNYT-Libreria-Complejos 
 ## Libreia complejos
 Esta libreria consiste de una implementación propia de los numeros complejos, y matrices de nuemros complejos con sus respectivas operaciones.
 Para usar vectores creelos como una matriz nx1 o 1xn y aplique transpuesta.
