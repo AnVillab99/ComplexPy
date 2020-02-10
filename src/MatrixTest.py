@@ -114,7 +114,35 @@ class TestComplexMatrix(unittest.TestCase):
         m2 = m.Matrix([[com.Complex(1, 1), com.Complex(-3, -1),com.Complex(3, 1)],
         [com.Complex(3, 1), com.Complex(-5, -1), com.Complex(3, 1),],
         [com.Complex(6, 1), com.Complex(-6, -1), com.Complex(4, 0)]])
-        m2.vectorPropio()
+        R1 = [m.Matrix([[com.Complex(-1,0)],[com.Complex(0,0)],[com.Complex(1,0)]]),
+        m.Matrix([[com.Complex(0.5,0)],[com.Complex(0.5,0)],[com.Complex(1,0)]])]
+        R2 = [m.Matrix([[com.Complex(1,0)],[com.Complex(1,0)],[com.Complex(0,0)]]),
+        m.Matrix([[com.Complex(0.5, 0.1667)],[com.Complex(0.5, 0.1667)],[com.Complex(1,0)]])]
+        r1 =m1.vectoresPropios()
+        r2 = m2.vectoresPropios()
+        iguales =True
+        for i in range(len(R1)):
+            if(not (R1[i].equals(r1[i]))):
+                iguales=False
+        for i in range(len(R2)):
+            if(not (R2[i].equals(r2[i]))):
+                iguales=False
+        self.assertTrue(iguales)
+
+    
+    def testValoresPropios(self):
+        m1 = m.Matrix([[com.Complex(1, 0), com.Complex(-3, 0),com.Complex(3, 0)],
+        [com.Complex(3, 0), com.Complex(-5, 0), com.Complex(3, 0),],
+        [com.Complex(6, 0), com.Complex(-6, 0), com.Complex(4, 0)]])
+        m2 = m.Matrix([[com.Complex(1, 1), com.Complex(-3, -1),com.Complex(3, 1)],
+        [com.Complex(3, 1), com.Complex(-5, -1), com.Complex(3, 1),],
+        [com.Complex(6, 1), com.Complex(-6, -1), com.Complex(4, 0)]])
+        r1 =m1.valoresPropios()
+        r2 = m2.valoresPropios()
+        R1 =[com.Complex(4, 0), com.Complex(-2, 0), com.Complex(-2, 0),]
+        R2 = [com.Complex(4, 0), com.Complex(-2, 0), com.Complex(-2, 0),]
+        self.assertTrue(m.equalsEigenV(r1,R1))
+        self.assertTrue(m.equalsEigenV(r2,R2))
 
     
         

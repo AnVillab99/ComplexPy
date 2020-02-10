@@ -6,6 +6,7 @@ class Complex:
     def __init__(self,r,i): 
         self.real=round(r,4) #real
         self.imag=round(i,4); #imaginaro
+        
     
 
     # Este metodo devuelve la suma de este complejo y otro proporcionado
@@ -98,6 +99,7 @@ class Complex:
         
         else:
             return False
+    
 
 
     def print(self):
