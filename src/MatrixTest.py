@@ -1,6 +1,7 @@
 import unittest
 import Complex as com
 import Matrix as m
+import math
 
 
 class TestComplexMatrix(unittest.TestCase):
@@ -104,8 +105,22 @@ class TestComplexMatrix(unittest.TestCase):
         [com.Complex(21, 0), com.Complex(24, 0), com.Complex(28, 0), com.Complex(32, 0)]])
 
         r=m1.productoTensor(m2)
-        r.print()
+        
         self.assertTrue(mr.equals(r))
+    
+    def testQuantum1(self):
+        H = m.Matrix([[com.Complex(1, 0), com.Complex(1, 0)],[com.Complex(1, 0), com.Complex(-1, 0)]])
+        X = m.Matrix([[com.Complex(0, 0), com.Complex(1, 0)], [com.Complex(1, 0), com.Complex(0, 0)]])
+        H=H.multiplyS((1/(math.sqrt(2))))
+        HX=H.productoTensor(X)
+        HH=H.productoTensor(H)
+        v=m.Matrix([[com.Complex(1,0),com.Complex(0,0),com.Complex(0,0),com.Complex(0,0)]])
+        r=v.multiply(HX)
+        r2=r.multiply(HH)
+        r2.print()
+        res = m.Matrix([[com.Complex(0.707,0),com.Complex(-0.707,0),com.Complex(0,0),com.Complex(0,0)]])
+        self.assertTrue(res.equals(r2))
+
     
         
 

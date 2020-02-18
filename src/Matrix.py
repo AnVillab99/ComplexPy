@@ -64,6 +64,9 @@ class Matrix:
 
             return Matrix(p)
         else:
+            b.print()
+            print("col A"+str(self.J))
+            print("fil b"+str(b.I))
             raise ValueError("Error en dimensiones de las matrices")
             sys.exit()
 
