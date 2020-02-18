@@ -271,12 +271,20 @@ def equalsEigenV(a,b):
 """Este metodo recibe el num de fils, columans y un array de enteros para crear una matriz"""
 def crear(I,J,v):
     if(not (len(v)==I*J)):
+        print(len(v))
+        print(I*J)
         return null 
-    valores  = [[0 for i in range(J)] for j in range(I)]
+    valores  = [[com.Complex(0,0) for i in range(J)] for j in range(I)]
     a=0
     for i in range(I):
         for j in range(J):
             valores[i][j]=com.Complex(v[a],0)
+            a=a+1
     return Matrix(valores)
 
-    
+
+def multiplicar(m,veces):
+    J = m
+    for i in range(veces):
+        m=m.multiply(J)
+    return m
