@@ -73,7 +73,7 @@ class Complex:
         return round(math.sqrt(self.real**2+self.imag**2),4)
 
     """# Este metodo devuelve el complejo en coordenadas polares
-    # @return Complex el real es la fase del vector y el imaginario es el angulo  """"
+    # @return Complex el real es la fase del vector y el imaginario es el angulo  """
     def convert(self):
         long = round(self.modulo(),4)
         fase = round(self.phase(),4)

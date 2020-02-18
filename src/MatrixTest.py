@@ -118,10 +118,8 @@ class TestComplexMatrix(unittest.TestCase):
         v=m.Matrix([[com.Complex(1,0),com.Complex(0,0),com.Complex(0,0),com.Complex(0,0)]])
         r=v.multiply(HX)
         r2=r.multiply(HH)
-        r2.print()
         res = m.Matrix([[com.Complex(0.707,0),com.Complex(-0.707,0),com.Complex(0,0),com.Complex(0,0)]])
         self.assertTrue(res.equals(r2))
-        self.assertTrue(mr.equals(r))
     
     def testVectoresPropios(self):
         m1 = m.Matrix([[com.Complex(1, 0), com.Complex(-3, 0),com.Complex(3, 0)],
