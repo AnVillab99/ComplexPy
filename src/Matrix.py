@@ -273,7 +273,7 @@ def crear(I,J,v):
     if(not (len(v)==I*J)):
         print(len(v))
         print(I*J)
-        return null 
+        return ValueError 
     valores  = [[com.Complex(0,0) for i in range(J)] for j in range(I)]
     a=0
     for i in range(I):

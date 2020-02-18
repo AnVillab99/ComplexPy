@@ -72,7 +72,7 @@ class ComplexTest(unittest.TestCase):
             a = Complex.Complex(1,3)
             b = Complex.Complex(0,0)
             s = Complex.Complex.divide(a,b)
-            self.assertEqual(false,true)
+            self.assertEqual(False,True)
         except ValueError  as e:
             self.assertEqual(str(e), "Denominador es 0")
 
