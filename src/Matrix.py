@@ -2,6 +2,7 @@ import sys
 import math
 import Complex as com
 import sympy as sp
+import fractions
 class Matrix:
     def __init__(self,m):
         self.m= m # la matriz
@@ -118,7 +119,7 @@ class Matrix:
     def norma(self):
         c =self.adjunta()
         d = c.multiply(self)
-        return round(math.sqrt(d.trace().real),4)
+        return (math.sqrt(d.trace().real))
 
     """# Este metodo devuelve la distancia entre 2 matrices
     # @return double la distancia entre las matrices"""
@@ -244,6 +245,14 @@ class Matrix:
                 s+=self.m[i][j].printS()
             print(s)
             s=""
+    def printF(self):
+        s = ""
+        for i in range(0,self.I):
+            for j in range(0,self.J):
+                r = com.Complex(fractions.Fraction.from_float((self.m[i][j].real)).limit_denominator(),fractions.Fraction.from_float((self.m[i][j].imag)).limit_denominator())
+                s+=r.printS()
+            print(s)
+            s=""
     def equals(self,b):
         if (self.I!= b.I or self.J != b.J):
             raise ValueError("Matriz dada es de dimensiones erradas")
@@ -254,6 +263,10 @@ class Matrix:
                     return False
                     sys.exit()
         return True
+    def fix(self,i,j,c):
+        self.m[i][j] = c
+               
+"""-------------------------------------------------------------------------"""
 """ Este metodo compara si los eigenvectores dados son iguales, no importa el orden"""
 def equalsEigenV(a,b):
         usados =[]
@@ -273,7 +286,8 @@ def crear(I,J,v):
     if(not (len(v)==I*J)):
         print(len(v))
         print(I*J)
-        return ValueError 
+        return "dimesiones y valores errados"
+    
     valores  = [[com.Complex(0,0) for i in range(J)] for j in range(I)]
     a=0
     for i in range(I):
@@ -282,9 +296,28 @@ def crear(I,J,v):
             a=a+1
     return Matrix(valores)
 
+def crearR(I,J,v):
+    if(not (len(v)==I*J)):
+        print(len(v))
+        print(I*J)
+        return "dimesiones y valores errados"
+    
+    valores  = [[com.Complex(0,0) for i in range(J)] for j in range(I)]
+    a=0
+    for i in range(I):
+        for j in range(J):
+            valores[i][j]=com.Complex(v[a][0],v[a][1])
+            a=a+1
+    return Matrix(valores)
+
 
 def multiplicar(m,veces):
     J = m
-    for i in range(veces):
+    for i in range(1,veces):
         m=m.multiply(J)
     return m
+
+def empty(I,J):
+    valores  = [[com.Complex(0,0) for j in range(J)] for i in range(I)]
+    return Matrix(valores)
+    

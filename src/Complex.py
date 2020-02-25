@@ -4,8 +4,8 @@ import math
 
 class Complex:
     def __init__(self,r,i): 
-        self.real=round(r,4) #real
-        self.imag=round(i,4); #imaginaro
+        self.real=r #real
+        self.imag=i #imaginaro
         
     
 
@@ -32,7 +32,7 @@ class Complex:
     def multiply(self,b):
         real = (self.real*b.real)-(self.imag*b.imag)
         imaginario = (self.real*b.imag)+(b.real*self.imag)
-        return Complex(round(real,4),round(imaginario,4))
+        return Complex(real,imaginario)
     
     """# Este metodo devuelve la divicion este complejo y otro proporcionado
     # @param b Complex
@@ -44,7 +44,7 @@ class Complex:
         
         real = ((self.real*b.real)+(self.imag*b.imag))/(b.real**2+b.imag**2)
         imaginario = ((b.real*self.imag)-(self.real*b.imag))/(b.real**2+b.imag**2)
-        return Complex(round(real,4),round(imaginario,4))
+        return Complex((real),(imaginario))
     
     """# Este metodo devuelve la multiplicacion escalar este complejo y un real
     # @param b real
@@ -52,7 +52,7 @@ class Complex:
     def sMultiply(self,c):
         real = self.real*c
         imaginario = self.imag*c
-        return Complex(round(real,4),round(imaginario,4))
+        return Complex((real),(imaginario))
     
     """# Este metodo devuelve  la divicion este complejo y un real
     # @param b real
@@ -60,7 +60,7 @@ class Complex:
     def sDivide(self,c):
         real = self.real/c
         imaginario = self.imag/c
-        return Complex(round(real,4),round(imaginario,4))
+        return Complex((real),(imaginario))
     
     """# Este metodo devuelve el conjugado de este complejo
     # @return Complex el conjugado"""
@@ -70,18 +70,18 @@ class Complex:
     """# Este metodo devuelve el modulo de este complejo
     # @return double e modulo"""
     def modulo(self):
-        return round(math.sqrt(self.real**2+self.imag**2),4)
+        return (math.sqrt(self.real**2+self.imag**2))
 
     """# Este metodo devuelve el complejo en coordenadas polares
     # @return Complex el real es la fase del vector y el imaginario es el angulo  """
     def convert(self):
-        long = round(self.modulo(),4)
-        fase = round(self.phase(),4)
-        return Complex(round(long,4),round(fase,4))
+        long = (self.modulo())
+        fase = (self.phase())
+        return Complex((long),(fase))
     """# Este metodo devuelve la fase, el angulo, que se obtinene al pasar el complejo a coordenadas polares
     # @return double el angulo en radianes"""
     def phase(self): #angulo
-        return round(math.atan2(self.imag,self.real),4)
+        return (math.atan2(self.imag,self.real))
     
     """# Este metodo devuelve la inversa del complejo (-real, -imag)
     # @return Complex el inverso"""
