@@ -265,7 +265,17 @@ class Matrix:
         return True
     def fix(self,i,j,c):
         self.m[i][j] = c
-               
+    
+    def booleanPrint(self):
+        s = ""
+        for i in range(0,self.I):
+            for j in range(0,self.J):
+                r=self.m[i][j].real
+                s+=r.printS()
+            print(s)
+            s=""
+
+
 """-------------------------------------------------------------------------"""
 """ Este metodo compara si los eigenvectores dados son iguales, no importa el orden"""
 def equalsEigenV(a,b):
@@ -316,8 +326,29 @@ def multiplicar(m,veces):
     for i in range(1,veces):
         m=m.multiply(J)
     return m
-
+"""Crea arreglo con 0's de tamaño I,J"""
 def empty(I,J):
     valores  = [[com.Complex(0,0) for j in range(J)] for i in range(I)]
     return Matrix(valores)
+
+""" Recibe un 2 enteros (filas y columnas) y un arreglo de booleanos (True=1, False=0)"""
+def booleanMatrix(I,J,c):
+    valores  = [[com.Complex(0,0) for j in range(J)] for i in range(I)]
+    a=0
+    for i in range(I):
+        for j in range(J):
+            if(type(c[a]) is bool):
+                valores[i][j]=com.Complex(c[a],0)
+            else:
+                v=False
+                if(c[a] == "T" or c[a]=="t"):
+                    v=True
+                valores[i][j]=com.Complex(v,0)
+            a=a+1
+                
+            
+    return Matrix(valores)
+
+
+
     
