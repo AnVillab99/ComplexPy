@@ -67,18 +67,18 @@ class TestComplexMatrix(unittest.TestCase):
     def testNormaMatrix(self):
         M = m.Matrix([[com.Complex(3, 0), com.Complex(5, 0)], [com.Complex(2, 0), com.Complex(3, 0)]])
         s = 6.8557
-        p = M.norma()
+        p = round(M.norma(),4)
         self.assertEqual(s, p)
         M = m.Matrix([[com.Complex(3, 8), com.Complex(5, 6)], [com.Complex(2, -1), com.Complex(3, -3)]])
         s = 12.53
-        p = M.norma()
+        p = round(M.norma(),2)
         self.assertEqual(s, p)
 
     def testDistanciaMatriz(self):
         m1 = m.Matrix( [[com.Complex(3, 9), com.Complex(5, 6)], [com.Complex(2, -10), com.Complex(3, 0.5)]])
         m2 = m.Matrix([[com.Complex(0, 9), com.Complex(1, 3)], [com.Complex(-1, -1), com.Complex(0, 0)]])
         s= 11.5434
-        p= m1.distancia(m2)
+        p= round(m1.distancia(m2),4)
         self.assertEqual(p,s)
 
     def testMatrizUnitaria(self):
@@ -119,6 +119,7 @@ class TestComplexMatrix(unittest.TestCase):
         r=v.multiply(HX)
         r2=r.multiply(HH)
         res = m.Matrix([[com.Complex(0.707,0),com.Complex(-0.707,0),com.Complex(0,0),com.Complex(0,0)]])
+        r2=r2.round(3)
         self.assertTrue(res.equals(r2))
     
     def testVectoresPropios(self):
@@ -136,10 +137,10 @@ class TestComplexMatrix(unittest.TestCase):
         r2 = m2.vectoresPropios()
         iguales =True
         for i in range(len(R1)):
-            if(not (R1[i].equals(r1[i]))):
+            if(not (R1[i].round(4).equals(r1[i].round(4)))):
                 iguales=False
         for i in range(len(R2)):
-            if(not (R2[i].equals(r2[i]))):
+            if(not (R2[i].round(4).equals(r2[i].round(4)))):
                 iguales=False
         self.assertTrue(iguales)
 

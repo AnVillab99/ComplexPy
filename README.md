@@ -39,7 +39,7 @@ En esta libreria las matrices cuentan con las siguientes operaciones:
  - Valores Propios
  - Comparacion de valores propios
 ## Uso de libreria
-Para correr esta libreria se necesita tener instalado python 3.8 y SymPy
+Para correr esta libreria se necesita tener instalado python 3.8, numpy, SymPy, Scipy, matplotlib
 
 Para instalar python se va a la pagina princiapl de python 
 > https://www.python.org/downloads/
@@ -48,8 +48,13 @@ Y se descarga la version especificada
 luego se clona la libreria de github:
 >https://github.com/AnVillab99/ComplexPy
 
-Dentro del repositorio clonado se debe ejecutar el comando:
+Dentro del repositorio clonado se debe ejecutar los comandos:
+
 > pip install sympy
+> python -m pip install numpy
+> python -m pip install scipy
+> python -m pip install matplotlib
+
 
 Para ejecutar se emplea el IDLE de python, o IDE de eleccion y se ejecuta: 
 

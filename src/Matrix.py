@@ -3,6 +3,7 @@ import math
 import Complex as com
 import sympy as sp
 import fractions
+import matplotlib.pyplot as plt
 class Matrix:
     def __init__(self,m):
         self.m= m # la matriz
@@ -274,6 +275,15 @@ class Matrix:
                 s+=r.printS()
             print(s)
             s=""
+    def round(self,n):
+        k=self.m
+        for i in range(self.I):
+            for j in range(self.J):
+                og = self.m[i][j]
+                k[i][j]=com.Complex(round(og.real,n),round(og.imag,n))
+        return Matrix(k)
+   
+        
 
 
 """-------------------------------------------------------------------------"""
@@ -348,6 +358,21 @@ def booleanMatrix(I,J,c):
                 
             
     return Matrix(valores)
+
+def printVector(v):
+    objects=[len(v)]
+    data=[len(v)]
+    for i in range(len(v)):
+        objects[i]=i
+        data[i]=v[i]
+
+    plt.bar(y_pos, performance, align='center', alpha=0.5)
+    plt.xticks(y_pos, objects)
+    plt.ylabel('Probability')
+    plt.title('Vector position')
+
+    plt.show()
+
 
 
 
