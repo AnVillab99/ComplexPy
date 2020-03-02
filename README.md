@@ -52,6 +52,7 @@ Dentro del repositorio clonado se debe ejecutar los comandos:
 
 > pip install sympy
 > python -m pip install numpy
+
 > python -m pip install scipy
 > python -m pip install matplotlib
 

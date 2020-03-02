@@ -44,8 +44,7 @@ class Matrix:
     # @return Matrix la multiplicacion de las matrices"""
     def multiply(self,b):
         if(self.J==1 and b.J==1 and self.I == b.I):
-            print(b.I)
-            print(b.J)
+            print("1 columna")
             r =com.Complex(0,0)
             for i in range(self.I):
                 for j in range(self.J):
@@ -246,6 +245,7 @@ class Matrix:
                 s+=self.m[i][j].printS()
             print(s)
             s=""
+    """Print con fraciones"""
     def printF(self):
         s = ""
         for i in range(0,self.I):
@@ -275,6 +275,8 @@ class Matrix:
                 s+=r.printS()
             print(s)
             s=""
+    
+    """Redondea los complejos de la matriz a N decimales (N param)"""
     def round(self,n):
         k=self.m
         for i in range(self.I):
@@ -316,6 +318,8 @@ def crear(I,J,v):
             a=a+1
     return Matrix(valores)
 
+
+"""Acepta como entrada de [] tuplas de numeros representado real e imaginario de un complejo"""
 def crearR(I,J,v):
     if(not (len(v)==I*J)):
         print(len(v))
@@ -330,7 +334,7 @@ def crearR(I,J,v):
             a=a+1
     return Matrix(valores)
 
-
+"""Multiplica la matriz m, x veces (m,x)""" 
 def multiplicar(m,veces):
     J = m
     for i in range(1,veces):
@@ -355,21 +359,24 @@ def booleanMatrix(I,J,c):
                     v=True
                 valores[i][j]=com.Complex(v,0)
             a=a+1
-                
-            
     return Matrix(valores)
 
-def printVector(v):
-    objects=[len(v)]
-    data=[len(v)]
-    for i in range(len(v)):
-        objects[i]=i
-        data[i]=v[i]
 
-    plt.bar(y_pos, performance, align='center', alpha=0.5)
-    plt.xticks(y_pos, objects)
+"""Muestra grafico del vector dado (solo vector no matriz)"""
+def printVector(v):     
+
+    objects=[]
+    data=[]
+    k=0
+    for i in range(v.I):
+        objects.append(k)
+        data.append(v.m[i][0].real)
+        k=k+1
+    plt.bar(objects, data, align='center', alpha=0.5)
+    plt.xticks(objects, objects)
     plt.ylabel('Probability')
-    plt.title('Vector position')
+    plt.xlabel("Vector position")
+    plt.title('Position probability')
 
     plt.show()
 
