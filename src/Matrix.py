@@ -284,7 +284,13 @@ class Matrix:
                 og = self.m[i][j]
                 k[i][j]=com.Complex(round(og.real,n),round(og.imag,n))
         return Matrix(k)
-   
+    def prob(self):
+        k=self.m
+        for i in range(self.I):
+            for j in range(self.J):
+                k[i][j] = com.Complex(math.pow(self.m[i][j].modulo(),2),0)
+        return Matrix(k)
+        
         
 
 
@@ -337,7 +343,7 @@ def crearR(I,J,v):
 """Multiplica la matriz m, x veces (m,x)""" 
 def multiplicar(m,veces):
     J = m
-    for i in range(1,veces):
+    for i in range(veces):
         m=m.multiply(J)
     return m
 """Crea arreglo con 0's de tamaño I,J"""
