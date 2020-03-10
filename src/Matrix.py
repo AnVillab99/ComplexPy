@@ -43,25 +43,25 @@ class Matrix:
     # @param b Matrix/vector otra matriz
     # @return Matrix la multiplicacion de las matrices"""
     def multiply(self,b):
-        if(self.J==1 and b.J==1 and self.I == b.I):
-            print("1 columna")
-            r =com.Complex(0,0)
-            for i in range(self.I):
-                for j in range(self.J):
+        # if(self.J==1 and b.J==1 and self.I == b.I):
+        #     print("1 columna")
+        #     r =com.Complex(0,0)
+        #     for i in range(self.I):
+        #         for j in range(self.J):
 
-                    r=r.suma(self.m[i][j].multiply(b.m[i][j]))
-            return r
-        elif(self.J == b.I):
+        #             r=r.suma(self.m[i][j].multiply(b.m[i][j]))
+        #     return r
+        if(self.J == b.I):
             p = [[com.Complex(0,0) for i in range(b.J)] for j in range(self.I)]
             for i in range(self.I):
                 for j in range(b.J):
 
                     sum=com.Complex(0,0)
                     for z in range(self.J):
+                        
                         sum=sum.suma(self.m[i][z].multiply(b.m[z][j]))
 
                     p[i][j]=sum
-
             return Matrix(p)
         else:
             b.print()
@@ -70,6 +70,10 @@ class Matrix:
             raise ValueError("Error en dimensiones de las matrices")
             sys.exit()
 
+    """ Devuelve el complejo que sale del producto interno"""
+    def productoInterno(self,b):
+        res = self.adjunta().multiply(b)
+        return (res)
 
     """# Este metodo devuelve la matriz inversa de la matriz actual
     # @return matrix la inversa"""
@@ -284,13 +288,27 @@ class Matrix:
                 og = self.m[i][j]
                 k[i][j]=com.Complex(round(og.real,n),round(og.imag,n))
         return Matrix(k)
+
+    """Se da un vector con complex y se devulve el vector de probabilidades que representan"""
     def prob(self):
         k=self.m
         for i in range(self.I):
             for j in range(self.J):
                 k[i][j] = com.Complex(math.pow(self.m[i][j].modulo(),2),0)
         return Matrix(k)
-        
+    
+    """Normaliza la matriz"""
+    def normalize(self):
+        sumatoria = 0
+        for i in range(self.I):
+            for j in range(self.J):
+                sumatoria=sumatoria+(math.pow(self.m[i][j].modulo(),2))
+        sumatoria = math.sqrt(sumatoria)
+        k = self.m
+        for i in range(self.I):
+            for j in range(self.J):
+                k[i][j] = self.m[i][j].sDivide(sumatoria)
+        return Matrix(k)
         
 
 
@@ -385,6 +403,16 @@ def printVector(v):
     plt.title('Position probability')
 
     plt.show()
+
+def identidad(g):
+    iden = empty(g,g)
+    a=0
+    for i in range(g):
+        print(i)
+        iden.fix(i,i,com.Complex(1,0))
+    return iden
+
+
 
 
 
