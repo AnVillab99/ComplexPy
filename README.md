@@ -56,9 +56,16 @@ luego se clona la libreria de github:
 Dentro del repositorio clonado se debe ejecutar los comandos:
 
 > pip install sympy
+<br>
+
 > python -m pip install numpy
+<br>
+
 
 > python -m pip install scipy
+
+<br>
+
 > python -m pip install matplotlib
 
 
