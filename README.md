@@ -38,6 +38,11 @@ En esta libreria las matrices cuentan con las siguientes operaciones:
  - Vectores Propios
  - Valores Propios
  - Comparacion de valores propios
+## De lo clasico a lo cuantico
+La libreria tambien permite usar funciones para realizar simulaciones cuanticas en un computador clasico, estas funciones son:
+ - Cambio en base a click de tiempo
+ - Creacion de matrices con valores booleanos
+ - Imprimir vector resultado como grafica
 ## Uso de libreria
 Para correr esta libreria se necesita tener instalado python 3.8, numpy, SymPy, Scipy, matplotlib
 
@@ -67,9 +72,17 @@ Para ejecutar las pruebas se necesita dirigir al directorio src y en comando eje
 
 > py MatrixTest.py
 ![testMatrices](https://github.com/AnVillab99/ComplexPy/blob/master/resources/images/testMatriz.PNG)
-o
+<br>
+
 >py ComplexTest.py
 ![testComplejos](https://github.com/AnVillab99/ComplexPy/blob/master/resources/images/testComplejos.PNG)
+<br>
+
+>py LeapTests.py
+![testLeap](https://github.com/AnVillab99/ComplexPy/blob/master/resources/images/leapTest.PNG)
+
+> grafica
+![graph](https://github.com/AnVillab99/ComplexPy/blob/master/resources/images/graph.PNG)
 
 
 ## Built With
