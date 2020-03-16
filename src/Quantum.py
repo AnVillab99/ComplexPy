@@ -28,7 +28,32 @@ def amplitudDeTransicion(a,b):
     return r.sDivide(d)
 
 def identidadEsperada(I,es):
-    id = m.identidad(I)
+    ide = m.identidad(I)
     for i in range(I):
-        id.m[i][i]=id.m[i][i].multiply(es)
-    return id
+        ide.m[i][i]=ide.m[i][i].multiply(es)
+    return ide
+
+"""Valor esperado al observar el vecotr v, con el observable o """
+def vEsperado(v,o):
+    if (o.hermetian()):
+        v3m= o.multiply(v)
+        vEsperado=v3m.productoInterno(v) #media
+        return vEsperado.m[0][0].modulo()
+    else:
+        raise ValueError("matriz no es hermetiana")
+        sys.exit()
+
+def media(v,o):
+    return vEsperado(v,o)
+
+def varianza(v,o):
+    media = vEsperado(v,o)
+    identidadMedia = identidadEsperada(o.I,media)
+    
+    delta = o.resta(identidadMedia)
+    dfo=delta.multiply(delta)
+    varIzq = dfo.multiply(v)
+    var =varIzq.productoInterno(v)
+    return var.m[0][0].modulo()
+
+

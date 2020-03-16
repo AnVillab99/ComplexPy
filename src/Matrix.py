@@ -309,7 +309,8 @@ class Matrix:
             for j in range(self.J):
                 k[i][j] = self.m[i][j].sDivide(sumatoria)
         return Matrix(k)
-        
+
+
 
 
 """-------------------------------------------------------------------------"""
@@ -408,9 +409,9 @@ def identidad(g):
     iden = empty(g,g)
     a=0
     for i in range(g):
-        print(i)
         iden.fix(i,i,com.Complex(1,0))
     return iden
+
 
 
 
