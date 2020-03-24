@@ -309,6 +309,13 @@ class Matrix:
             for j in range(self.J):
                 k[i][j] = self.m[i][j].sDivide(sumatoria)
         return Matrix(k)
+    def sumaInterna(self):
+        sum=0
+        for i in range(self.I):
+            for j in range(self.J):
+                sum=sum+self.m[i][j].modulo()
+        return sum
+
 
 
 
